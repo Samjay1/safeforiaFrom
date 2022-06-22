@@ -16,7 +16,7 @@ const Page1 = ()=>{
 
     let navigate = useNavigate();
     // let BASE_URL = 'http://localhost:8000';
-    let BASE_URL = 'https://api.safeforia.com/'
+    let BASE_URL = 'https://api.safeforia.com'
 
 
     let [email, setEmail] = useState('')
@@ -70,22 +70,33 @@ const Page1 = ()=>{
 
     const onSubmit = ()=>{
         let new_nutri =''
-        nutri.value !== undefined && nutri.value.forEach((item)=> {
-            new_nutri += item.value +',' 
+        nutri.value !== undefined && nutri.value.forEach((item,index)=> {
+            if(nutri.value.length-1 === index){
+                new_nutri += item.value
+            }else{
+                new_nutri += item.value +';' 
+            }
           })
           let new_microb =''
-          microb.value !== undefined && microb.value.forEach((item)=> {
-            new_microb += item.value +',' 
+          microb.value !== undefined && microb.value.forEach((item,index)=> {
+            if(microb.value.length-1 === index){
+                new_microb += item.value 
+            }else{
+                new_microb += item.value +';'
+            }
             // console.log(item)
           })
           let new_physi =''
-          
-          physi.value !== undefined && physi.value.forEach((item)=> {
-            new_physi += item.value +',' 
+          physi.value !== undefined && physi.value.forEach((item,index)=> {
+            if(physi.value.length-1 === index){
+                new_physi += item.value
+            }else{
+                new_physi += item.value +';' 
+            }
           })
           let new_type =''
           type.value !== undefined && type.value.forEach((item)=> {
-            new_type += item.value +',' 
+            new_type += item.value +';' 
             })
         let responseObj = {
             email:  email.value, 

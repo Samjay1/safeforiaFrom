@@ -6,10 +6,10 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 function App() {
   return (
-    <Router>
+    <Router basename={'/'}>
       <Routes>
-        <Route path='/' element={<Page1/>}/> 
-        <Route path='/success' element={<Success/>}/>
+        <Route path={`${process.env.PUBLIC_URL}/`} element={<Page1/>}/> 
+        <Route path={`${process.env.PUBLIC_URL}/success`} element={<Success/>}/>
       </Routes>
     </Router>
   );
